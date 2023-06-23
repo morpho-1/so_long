@@ -64,8 +64,8 @@ int	move_player(int key, t_vars *vars)
 		write (1, "GAME OVER\n", 10);
 		exit(0);
 	}
-	row = (key == DW) + (key == UP) * (-1);
-	col = (key == RT) + (key == LF) * (-1);
+	row = (key == DW || key == 1) + (key == UP || key == 13) * (-1);
+	col = (key == RT || key == 2) + (key == LF || key == 0) * (-1);
 	if (!row && !col)
 		return (1);
 	ft_move(vars, row, col);
